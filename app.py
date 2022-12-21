@@ -1,7 +1,7 @@
 import os
 from src import create_app
 
-port = os.getenv('PORT', 5010)
+port = os.getenv('PORT', 5000)
 app = create_app(config_name='dev')
 
 

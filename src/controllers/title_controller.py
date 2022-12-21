@@ -44,3 +44,9 @@ def delete_titulo(id_titulo: str):
 def get_titulos():
     db = get_dal().get_db()
     return title_service.get_titulos(db)
+
+
+@title_api.get('/modificar_fecha_creacion/<fecha>')
+def modificar_fecha_creacion(fecha: str):
+    db = get_dal().get_db()
+    return title_service.modificar_fecha_creacion(db, fecha)
