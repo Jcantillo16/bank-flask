@@ -1,5 +1,6 @@
 import datetime
 
+from src.connection import get_dal
 from src.schemas.title import Title
 from src.repositories.title_repository import TitleRepository
 from src.errors.titulo import TituloInvalido, TituloNoExiste
