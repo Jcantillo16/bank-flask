@@ -4,12 +4,9 @@ from src.utils.constants import TITULOS, ID_TITULOS
 from src.services.title_service import TitleService
 from src.connection import get_dal
 
-
-
-
 db = get_dal().get_db()
-            
-#validar que la funcion get_cantidad_titulos retorne la cantidad de titulos
+
+
 class TestTitleService(unittest.TestCase):
     def test_get_cantidad_titulos(self):
         # Arrange
@@ -19,16 +16,6 @@ class TestTitleService(unittest.TestCase):
         # Assert
         self.assertEqual(cantidad, 3)
 
-    #validar que la funcion create_titulo cree un titulo
-    def test_create_titulo(self):
-        # Arrange
-        service = TitleService()
-        # Act
-        titulo = service.create_titulo(db, Title(**TITULOS[0]))
-        # Assert
-        self.assertEqual(titulo, TITULOS[0])
-
-    #validar que la funcion delete_titulo elimine un titulo
     def test_delete_titulo(self):
         # Arrange
         service = TitleService()
@@ -36,3 +23,21 @@ class TestTitleService(unittest.TestCase):
         titulo = service.delete_titulo(db, ID_TITULOS[0])
         # Assert
         self.assertEqual(titulo, None)
+
+    def test_create_titulo(self):
+        # Arrange
+        service = TitleService()
+        nuevo_titulo = Title(
+            id_titulo='THI',
+            titulo='DOLAR',
+            clasificacion='C',
+            valor=50000,
+            fecha_creacion='2021-01-01',
+            fecha_vencimiento='2021-01-01',
+            pago_cuota='y',
+        )
+        # Act
+        titulo = service.create_titulo(db, nuevo_titulo)
+        # Assert
+        self.assertEqual(titulo, nuevo_titulo)
+
