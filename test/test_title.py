@@ -41,3 +41,14 @@ class TestTitleService(unittest.TestCase):
         # Assert
         self.assertEqual(titulo, nuevo_titulo)
 
+    def test_get_titulos(self):
+        # Arrange
+        service = TitleService()
+        # Act
+        titulos = service.get_titulos(db)
+        # Assert
+        self.assertEqual(db, titulos)
+
+
+
+
