@@ -50,5 +50,7 @@ class TestTitleService(unittest.TestCase):
         self.assertEqual(db, titulos)
 
 
+if __name__ == '__main__':
+    unittest.main()
 
 
